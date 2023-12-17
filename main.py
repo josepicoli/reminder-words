@@ -9,8 +9,6 @@ def add_bd(text):
     with open("bd.txt", "a") as bd:
         bd.write(f"{text}\n")
 
-#add_bd(text_format("red", "vermelho"))
-
 def interface():
     black = "#000000"
     white = "#ffffff"
@@ -43,6 +41,7 @@ def interface():
     add_button = Button(frame)
     add_button.config(text= "ADD")
     add_button.config(bd= 0)
+    add_button.config(command= lambda: add_bd(text_format(en_txt.get(), pt_txt.get())))
     add_button.place(x= 190, y= 110)
 
     frame.mainloop()
