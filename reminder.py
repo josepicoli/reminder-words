@@ -6,11 +6,11 @@ def get_words():
         with open("bd.txt", "r") as bd:
             words = bd.readlines()
     except:
-        return print("error reading the file")
+        return "404"
 
     words = choice(words)
     words = words.split("=")
-    words[1] = words[1][:-1]
+    words[1] = words[1].replace("\n", "")
     return words
 
 def interface():
@@ -34,6 +34,9 @@ def interface():
 def cli():
     while True:
         word = get_words()
+        if word == "404":
+            print("erro")
+            break
         print(f"question: {word[0]}")
         response = input("response: ")
         if response == word[1]:
