@@ -1,0 +1,5 @@
+oi=oi
+ola=ola
+teste=teste
+teste34=teste34
+tes=tes

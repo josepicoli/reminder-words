@@ -3,7 +3,7 @@ from tkinter import *
 def text_format(en, pt):
     en = en.strip().lower()
     pt = pt.strip().lower()
-    return f"{en}#{pt}"
+    return f"{en}={pt}"
 
 def add_bd(text):
     with open("bd.txt", "a") as bd:
