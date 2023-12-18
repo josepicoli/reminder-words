@@ -23,7 +23,7 @@ def interface():
     frame.config(bg= black)
 
     lb_ask = Label(frame)
-    lb_ask.config(text= choose(get_bd()))
+    lb_ask.config(text= "ask")
     lb_ask.config(font= "Arial 18 bold")
     lb_ask.config(bg= black)
     lb_ask.config(fg= white)
