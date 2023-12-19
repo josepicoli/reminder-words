@@ -12,6 +12,15 @@ def print_rgb(color, text):
         case "blue":
             print(f"\033[94m{text}\033[0m")
 
+def input_rgb(color, text):
+    match color:
+        case "red":
+            return input(f"\033[91m{text}\033[0m")
+        case "green":
+            return input(f"\033[92m{text}\033[0m")
+        case "blue":
+            return input(f"\033[94m{text}\033[0m")
+
 def get_words():
     try:
         with open("bd.txt", "r") as bd:
@@ -53,10 +62,13 @@ def cli():
         if word == "404":
             print("erro")
             break
+
         print_rgb("green", f"XP = {xp}")
         print_rgb("blue", "-" * 20)
-        print(f"question: {word[0]}")
-        response = input("response: ")
+
+        print_rgb("green", f"question: {word[0]}")
+        response = input_rgb("green", "response: ")
+
         print_rgb("blue", "-" * 20)
 
         if response == word[1]:
