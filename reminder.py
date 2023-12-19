@@ -1,6 +1,15 @@
 from tkinter import *
 from random import *
 
+def print_rgb(color, text):
+    match color:
+        case "red":
+            print(f"\033[91m{text}\033[0m")
+        case "green":
+            print(f"\033[92m{text}\033[0m")
+        case "blue":
+            print(f"\033[94m{text}\033[0m")
+
 def get_words():
     try:
         with open("bd.txt", "r") as bd:
@@ -37,11 +46,14 @@ def cli():
         if word == "404":
             print("erro")
             break
+
+        print("-" * 20)
         print(f"question: {word[0]}")
         response = input("response: ")
+        print("-" * 20)
         if response == word[1]:
-            print("T")
+            print_rgb("green", "True")
         else:
-            print("F")
+            print_rgb("red", "False")
 
 cli()
