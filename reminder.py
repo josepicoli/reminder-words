@@ -1,5 +1,7 @@
 from tkinter import *
-from random import *
+from random import choice
+from os import system
+from time import sleep
 
 def print_rgb(color, text):
     match color:
@@ -41,19 +43,33 @@ def interface():
     frame.mainloop()
 
 def cli():
+    xp = 0
     while True:
+        print_rgb("blue", "-" * 20)
+        print_rgb("green", "|  reminder-words  |")
+        print_rgb("blue", "-" * 20)
+
         word = get_words()
         if word == "404":
             print("erro")
             break
-
-        print("-" * 20)
+        print_rgb("green", f"XP = {xp}")
+        print_rgb("blue", "-" * 20)
         print(f"question: {word[0]}")
         response = input("response: ")
-        print("-" * 20)
+        print_rgb("blue", "-" * 20)
+
         if response == word[1]:
             print_rgb("green", "True")
+            print_rgb("green", "+10 XP")
+            xp = xp + 10
         else:
             print_rgb("red", "False")
+            print_rgb("red", "-10 XP")
+            xp = xp - 10
+        
+        sleep(1)
+        system("clear")
 
+system("clear")
 cli()
