@@ -1,4 +1,7 @@
 from tkinter import *
+from rainbowio import *
+from os import system
+from time import sleep
 
 def text_format(en, pt):
     en = en.strip().lower()
@@ -8,6 +11,13 @@ def text_format(en, pt):
 def add_bd(text):
     with open("bd.txt", "a") as bd:
         bd.write(f"{text}\n")
+
+def number_words():
+    try:
+        with open("bd.txt", "r") as words:
+            return len(words.readlines())
+    except:
+        return "I couldn't find your words"
 
 def interface():
     black = "#000000"
@@ -47,7 +57,25 @@ def interface():
     frame.mainloop()
 
 def cli():
-    #criar cli para o registrador
-    pass
+    while True:
+        print_rgb("blue", "-" * 20)
+        print_rgb("green", "|  reminder-words  |")
+        print_rgb("blue", "-" * 20)
 
-interface()
+        print_rgb("green", f"words = {number_words()}")
+
+        print_rgb("blue", "-" * 20)
+        en = input_rgb("green", "English: ")
+        pt = input_rgb("green", "Portuguese: ")
+        print_rgb("blue", "-" * 20)
+
+        add_bd(text_format(en, pt))
+
+        print_rgb("green", "added word")
+
+        sleep(1)
+        system("clear")
+
+#interface()
+system("clear")
+cli()
