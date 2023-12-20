@@ -47,12 +47,14 @@ def cli():
             break
 
         print_rgb("green", f"XP = {xp}")
-        print_rgb("blue", "-" * 20)
 
+        print_rgb("blue", "-" * 20)
         print_rgb("green", f"question: {word[0]}")
         response = input_rgb("green", "response: ")
-
         print_rgb("blue", "-" * 20)
+
+        if response == ".exit":
+            break
 
         if response == word[1]:
             print_rgb("green", "True")

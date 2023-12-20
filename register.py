@@ -69,6 +69,9 @@ def cli():
         pt = input_rgb("green", "Portuguese: ")
         print_rgb("blue", "-" * 20)
 
+        if en or pt == ".exit":
+            break
+
         add_bd(text_format(en, pt))
 
         print_rgb("green", "added word")
