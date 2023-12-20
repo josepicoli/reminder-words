@@ -46,4 +46,8 @@ def interface():
 
     frame.mainloop()
 
+def cli():
+    #criar cli para o registrador
+    pass
+
 interface()
