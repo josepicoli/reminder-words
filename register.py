@@ -69,6 +69,7 @@ def cli():
         print_rgb("blue", "-" * 20)
 
         if en or pt == ".exit":
+            system("clear")
             break
 
         add_bd(text_format(en, pt))

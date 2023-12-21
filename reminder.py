@@ -61,6 +61,7 @@ def cli(mode = 0):
         print_rgb("blue", "-" * 20)
 
         if response == ".exit":
+            system("clear")
             break
 
         if response == word[B]:
