@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from tkinter import *
 from rainbowio import *
 from os import system

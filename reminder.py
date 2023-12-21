@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from tkinter import *
 from random import choice
 from os import system
@@ -55,14 +56,14 @@ def cli(mode = 0):
         print_rgb("green", f"XP = {xp}")
 
         print_rgb("blue", "-" * 20)
-        print_rgb("green", f"question: {word[A]}") # aqui
+        print_rgb("green", f"question: {word[A]}")
         response = input_rgb("green", "response: ")
         print_rgb("blue", "-" * 20)
 
         if response == ".exit":
             break
 
-        if response == word[B]: # e aqui
+        if response == word[B]:
             print_rgb("green", "True")
             print_rgb("green", "+10 XP")
             xp = xp + 10
