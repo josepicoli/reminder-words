@@ -58,9 +58,7 @@ def interface():
 
 def cli():
     while True:
-        print_rgb("blue", "-" * 20)
-        print_rgb("green", "|  reminder-words  |")
-        print_rgb("blue", "-" * 20)
+        logo()
 
         print_rgb("green", f"words = {number_words()}")
 

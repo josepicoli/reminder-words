@@ -34,12 +34,18 @@ def interface():
 
     frame.mainloop()
 
-def cli():
+def cli(mode = 0):
+    match mode:
+        case 0:
+            A = 0
+            B = 1
+        case 1:
+            A = 1
+            B = 0
+
     xp = 0
     while True:
-        print_rgb("blue", "-" * 20)
-        print_rgb("green", "|  reminder-words  |")
-        print_rgb("blue", "-" * 20)
+        logo()
 
         word = get_words()
         if word == "404":
@@ -49,14 +55,14 @@ def cli():
         print_rgb("green", f"XP = {xp}")
 
         print_rgb("blue", "-" * 20)
-        print_rgb("green", f"question: {word[0]}")
+        print_rgb("green", f"question: {word[A]}") # aqui
         response = input_rgb("green", "response: ")
         print_rgb("blue", "-" * 20)
 
         if response == ".exit":
             break
 
-        if response == word[1]:
+        if response == word[B]: # e aqui
             print_rgb("green", "True")
             print_rgb("green", "+10 XP")
             xp = xp + 10
