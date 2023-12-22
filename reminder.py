@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-from tkinter import *
 from random import choice
 from os import system
 from time import sleep
-from rainbowio import *
+from rainbowio import print_rgb, input_rgb, logo
 
 def get_words():
     try:

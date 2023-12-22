@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-from tkinter import *
-from rainbowio import *
+from rainbowio import print_rgb, input_rgb, logo
 from os import system
 from time import sleep
 
