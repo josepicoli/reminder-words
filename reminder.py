@@ -2,7 +2,7 @@
 from random import choice
 from os import system
 from time import sleep
-from rainbowio import print_rgb, input_rgb, logo
+from rainbowio import print_rgb, input_rgb, logo, number_words
 
 def get_words():
     try:
@@ -17,6 +17,7 @@ def get_words():
     return words
 
 def cli(mode = 0):
+    system("clear")
     match mode:
         case 0:
             A = 0
@@ -31,7 +32,9 @@ def cli(mode = 0):
 
         word = get_words()
         if word == "404":
-            print("erro")
+            print_rgb("red", "erro: words not found")
+            sleep(5)
+            system("clear")
             break
 
         print_rgb("green", f"XP = {xp}")
@@ -57,5 +60,35 @@ def cli(mode = 0):
         sleep(1)
         system("clear")
 
-system("clear")
-cli()
+def start():
+    system("clear")
+    logo()
+
+    print_rgb("green", f"you have {number_words()} words")
+
+    print_rgb("blue", "-" * 20)
+
+    print_rgb("green", "#Reminder has two different game modes, enter the number to play in specific mode")
+    print_rgb("green", "#questions in English answer in Portuguese type (0)")
+    print_rgb("green", "#questions in Portuguese answers in English type (1)")
+    print_rgb("green", "#type (.exit) at any time to close the program\n")
+
+    print_rgb("green", "Which mode do you want to use?")
+    res = input_rgb("green", "> ")
+
+    print_rgb("blue", "-" * 20)
+
+    match res:
+        case "0":
+            cli(0)
+        case "1":
+            cli(1)
+        case ".exit":
+            system("clear")
+            return 0
+        case _:
+            print_rgb("red", "invalid command")
+            sleep(1)
+            start()
+
+start()

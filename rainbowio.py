@@ -20,3 +20,10 @@ def logo():
     print_rgb("blue", "-" * 20)
     print_rgb("green", "|  reminder-words  |")
     print_rgb("blue", "-" * 20)
+
+def number_words():
+    try:
+        with open("bd.txt", "r") as words:
+            return len(words.readlines())
+    except:
+        return "I couldn't find your words"
