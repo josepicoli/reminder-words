@@ -6,6 +6,8 @@ from time import sleep
 def text_format(en, pt):
     en = en.strip().lower()
     pt = pt.strip().lower()
+    if en == '' or pt == '':
+        return "="
     return f"{en}={pt}"
 
 def add_bd(text):
@@ -33,7 +35,7 @@ def cli():
         pt = input_rgb("green", "Portuguese: ")
         print_rgb("blue", "-" * 20)
 
-        if (en or pt) == ".exit":
+        if en == ".exit" or pt == ".exit":
             system("clear")
             break
 
