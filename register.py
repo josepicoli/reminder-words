@@ -9,8 +9,11 @@ def text_format(en, pt):
     return f"{en}={pt}"
 
 def add_bd(text):
+    if text == "=":
+        return "404"
     with open("bd.txt", "a") as bd:
         bd.write(f"{text}\n")
+        return "200"
 
 def number_words():
     try:
@@ -30,13 +33,17 @@ def cli():
         pt = input_rgb("green", "Portuguese: ")
         print_rgb("blue", "-" * 20)
 
-        if en or pt == ".exit":
+        if (en or pt) == ".exit":
             system("clear")
             break
 
-        add_bd(text_format(en, pt))
+        response = add_bd(text_format(en, pt))
 
-        print_rgb("green", "added word")
+        match response:
+            case "200":
+                print_rgb("green", "added word")
+            case "404":
+                print_rgb("red", "word not added")
 
         sleep(1)
         system("clear")
