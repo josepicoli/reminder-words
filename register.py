@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from rainbowio import print_rgb, input_rgb, logo
+from rainbowio import print_rgb, input_rgb, logo, number_words
 from os import system
 from time import sleep
 
@@ -17,18 +17,12 @@ def add_bd(text):
         bd.write(f"{text}\n")
         return "200"
 
-def number_words():
-    try:
-        with open("bd.txt", "r") as words:
-            return len(words.readlines())
-    except:
-        return "I couldn't find your words"
-
 def cli():
+    system("clear")
     while True:
         logo()
 
-        print_rgb("green", f"words = {number_words()}")
+        print_rgb("green", f"you have {number_words()} words")
 
         print_rgb("blue", "-" * 20)
         en = input_rgb("green", "English: ")
@@ -50,5 +44,4 @@ def cli():
         sleep(1)
         system("clear")
 
-system("clear")
 cli()
