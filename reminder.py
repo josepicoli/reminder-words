@@ -33,7 +33,7 @@ def cli(mode = 0):
         word = get_words()
         if word == "404":
             print_rgb("red", "erro: words not found")
-            sleep(5)
+            sleep(3)
             system("clear")
             break
 
@@ -49,15 +49,15 @@ def cli(mode = 0):
             break
 
         if response == word[B]:
-            print_rgb("green", "True")
+            print_rgb("green", "right answer")
             print_rgb("green", "+10 XP")
             xp = xp + 10
         else:
-            print_rgb("red", "False")
+            print_rgb("red", f"wrong answer, the answer is {word[B]}")
             print_rgb("red", "-10 XP")
             xp = xp - 10
         
-        sleep(1)
+        sleep(1.3)
         system("clear")
 
 def start():
