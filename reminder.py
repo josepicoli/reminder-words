@@ -7,11 +7,17 @@ from rainbowio import print_rgb, input_rgb, logo, number_words
 def get_words():
     try:
         with open("bd.txt", "r") as bd:
-            words = bd.readlines()
+            words_list = bd.readlines()
+            
+            while "\n" in words_list:
+                words_list.remove("\n")
+
+            if words_list == []:
+                return "505"
     except:
         return "404"
-
-    words = choice(words)
+    
+    words = choice(words_list)
     words = words.split("=")
     words[1] = words[1].replace("\n", "")
     return words
@@ -31,11 +37,18 @@ def cli(mode = 0):
         logo()
 
         word = get_words()
-        if word == "404":
-            print_rgb("red", "erro: words not found")
-            sleep(3)
-            system("clear")
-            break
+
+        match word:
+            case "404":
+                print_rgb("red", "erro: words not found")
+                sleep(3)
+                system("clear")
+                break
+            case "505":
+                print_rgb("red", "erro: empty list")
+                sleep(3)
+                system("clear")
+                break
 
         print_rgb("green", f"XP = {xp}")
 
